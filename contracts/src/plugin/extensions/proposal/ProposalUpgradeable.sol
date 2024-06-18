@@ -27,7 +27,9 @@ abstract contract ProposalUpgradeable is IProposal, ERC165Upgradeable {
     /// @param _interfaceId The ID of the interface.
     /// @return Returns `true` if the interface is supported.
     function supportsInterface(bytes4 _interfaceId) public view virtual override returns (bool) {
-        return _interfaceId == type(IProposal).interfaceId || super.supportsInterface(_interfaceId);
+         return _interfaceId == type(IProposal).interfaceId
+            || _interfaceId == bytes4(0xda35c664) // interfaceId of old IProposal containing only proposalCount() function
+            ||  super.supportsInterface(_interfaceId);
     }
 
     /// @notice Creates a proposal ID.
