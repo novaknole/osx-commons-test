@@ -27,6 +27,8 @@ interface IProposal {
         uint256 allowFailureMap
     );
 
+    function createProposal(bytes calldata metadata, IDAO.Action[] calldata actions, uint64 startDate, uint64 endDate) external;
+
     /// @notice Emitted when a proposal is executed.
     /// @param proposalId The ID of the proposal.
     event ProposalExecuted(uint256 indexed proposalId);
