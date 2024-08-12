@@ -34,6 +34,10 @@ interface IProposal {
         uint64 endDate
     ) external returns(uint256 proposalId);
 
+    function canExecute(
+        uint256 proposalId
+    ) external returns(bool);
+
     /// @notice Emitted when a proposal is executed.
     /// @param proposalId The ID of the proposal.
     event ProposalExecuted(uint256 indexed proposalId);
